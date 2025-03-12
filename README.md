@@ -7,6 +7,7 @@ This project implements a dual authentication system using face recognition and 
 A predefined image of the authorized person is stored.
 The system captures a live image from the webcam and compares it with the stored image.
 If the face matches, the system proceeds to the next step.
+
 2.Voice Authentication Step:
 
 The user is asked to say a predefined authentication PIN (e.g., "HEY HOW ARE YOU").
