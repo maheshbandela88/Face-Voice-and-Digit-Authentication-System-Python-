@@ -1,0 +1,25 @@
+<!-- face.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="gradient-overlay"></div>
+        <div class="container face-container">
+            <h2 class="title-animated">Face Authentication</h2>
+            <div class="video-wrapper">
+                <video id="video" autoplay></video>
+                <div class="scan-overlay"></div>
+            </div>
+            <button id="face-btn" class="btn-animated" onclick="captureFace()">Verify Identity</button>
+            <p id="error" class="error-animated"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+/* style.css */
+:root {
+    --primary: #00d4ff;
+    --secondary: #ff007a;
+    --dark: #1a1a2e;
+    --light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--dark), #16213e);
+}
+
+.background-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1), transparent);
+    animation: pulse 10s infinite;
+}
+
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Add to style.css */
+.btn-animated.processing {
+    animation: pulse 1s infinite;
+    background: linear-gradient(45deg, #808080, #a0a0a0);
+}
+
+.error-animated {
+    color: #ff4d4d;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-animated.show {
+    opacity: 1;
+    animation: shake 0.5s ease;
+}
+
+.mic-visualizer {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary), transparent);
+    transition: all 0.3s ease;
+}
+
+.mic-visualizer.active {
+    box-shadow: 0 0 20px var(--primary);
+    transform: scale(1.1);
+    background: radial-gradient(circle, var(--primary), var(--secondary));
+}
+
+.title-animated {
+    color: var(--light);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.title-animated::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    animation: underline 2s infinite;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: var(--light);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-animated {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 10px;
+    color: var(--light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-animated::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-animated:hover:not(:disabled)::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-animated:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error-animated {
+    color: #ff4d4d;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    animation: shake 0.5s ease;
+}
+
+.video-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+video {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.scan-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.2));
+    animation: scan 2s infinite;
+}
+
+.mic-visualizer {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary), transparent);
+    animation: pulse 1.5s infinite;
+}
+
+.success-container {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-check {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--dark);
+    animation: bounce 0.5s ease;
+}
+
+.fade-in {
+    color: var(--light);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.5s;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes underline {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
